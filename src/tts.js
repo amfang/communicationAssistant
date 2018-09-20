@@ -322,76 +322,14 @@ exports.initTTS = function () {
           console.log(statustext + errorthrown);
         });
 
-      //根据输入语言和选择语音确定如何翻译到最终需要文字 -- 后续
-      /*
-      //Translator到English
-      var textContent = this.value;
-      console.log("textContent: "+textContent);
-
-      // get model_id from domain, source and target
-      var pageDomain = "general";
-      var source = "en";
-      var target = "ja";
-      var model_id = getModelId(pageDomain, source, target);
-      console.log(' --- source-' + source + '  target-' + target + '   textContent-' + textContent);
-      if (pageDomain && source && target && textContent && model_id) {
-        console.log('source-' + source + '  target-' + target + '   textContent-' + textContent);
-
-        // Create call for AJAX and to populate REST API tab
-        var callData = {
-          model_id: model_id,
-          text: textContent
-        };
-
-        var restAPICall = {
-          type: 'POST',
-          url: '/api/translate',
-          data: callData,
-          dataType: 'json',
-          headers: {
-            'X-WDC-PL-OPT-OUT': $('input:radio[name=serRadio]:radio:checked').val(),
-            'X-Watson-Technology-Preview': nmtValue
-          },
-          async: true
-        };
-
-        $.ajax(restAPICall)
-          .done(function (data) {
-            var translatedValue = data['translations'][0]['translation'];
-
-            //
-            var serverUrl = "http://127.0.0.1:3005/api/synthesize?";
-            var params = "text=" + translatedValue + "&voice=ja-JP_EmiVoice&download=true";
-            fetch(serverUrl+params).then(function(response) {
-              if (response.ok) {
-                response.blob().then(function(blob) {
-                  var url = window.URL.createObjectURL(blob);
-                  obj.Audio.setAttribute('src', url);
-                  obj.audio_area.classList.remove("hidden");
-                  console.log(url);
-                  obj.Audio.setAttribute('type', 'audio/ogg;codecs=opus');
-                });
-              } else {
-                response.json().then(function(json) {
-                  console.log("error: "+JSON.stringify(json));
-                });
-              }
-            });
-          })
-          .fail(function (jqXHR, statustext, errorthrown) {
-            $('#homeOutput2 textarea').val('translation error');
-            console.log(statustext + errorthrown);
-          });
-      } else {
-        console.log('not all values' + 'source- ' + source + '  target- ' + target + '   textContent- ' + textContent + ' model_id - ' + model_id);
-      }*/
-
       this.value = "";
     }
   });
 
+  /*
   if (window.event.keyCode==13)
     window.event.keyCode=0; //这样就取消回车键了
+  */
 
   function voiceAudio(options) {
 
@@ -509,4 +447,3 @@ exports.initTTS = function () {
     //console.log(obj.audio_progress.style.cssText);
   }
 }
-
