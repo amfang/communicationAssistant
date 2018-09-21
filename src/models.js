@@ -26,7 +26,7 @@ exports.getModels = function(token) {
   };
 
   var modelUrl = 'https://stream.watsonplatform.net/speech-to-text/api/v1/models';
-
+  /*
   $.ajax({
     type: 'GET',
     url: modelUrl,
@@ -61,9 +61,8 @@ exports.getModels = function(token) {
       viewContext.models = require('./data/models.json').models;
       selectModel(viewContext);
     });
-
-
-  /*
+   */
+  
   var sttRequest = new XMLHttpRequest();
   sttRequest.open('GET', modelUrl, true);
   sttRequest.withCredentials = true;
@@ -95,5 +94,5 @@ exports.getModels = function(token) {
     selectModel(viewContext);
   };
   sttRequest.send();
-  */
+
 };
