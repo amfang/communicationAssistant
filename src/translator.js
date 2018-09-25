@@ -436,6 +436,9 @@ function getTranslation() {
         console.log("tmpOutputStr updated: "+$('#homeOutput textarea').val());
         $('#profile2 textarea').val(JSON.stringify(data, null, 2));
 
+        var elementTranscript = $('#homeOutput textarea').get(0);
+        elementTranscript.scrollTop = elementTranscript.scrollHeight;
+
         console.log("data['translations'][0]['translation']: "+data['translations'][0]['translation']);
         //开始第二次翻译
         console.log("开始第二次翻译:"+$('#homeOutput textarea').val());
@@ -463,6 +466,7 @@ function getTranslation() {
   } else {
     console.log('not all values' + 'source- ' + source + '  target- ' + target + '   textContent- ' + textContent + ' model_id - ' + model_id);
   }
+
 } // get Translation end here
 function getTranslation2() {
   var pageDomain = 'general';
@@ -565,6 +569,8 @@ function getTranslation2() {
         $('#profile2 textarea').val(JSON.stringify(data, null, 2));
         //完成第二次翻译
         console.log("完成第二次翻译:"+$('#homeOutput2 textarea').val());
+        var elementTranscript = $('#homeOutput2 textarea').get(0);
+        elementTranscript.scrollTop = elementTranscript.scrollHeight;
       })
       .fail(function (jqXHR, statustext, errorthrown) {
         $('#homeOutput2 textarea').val('translation error');
@@ -573,6 +579,7 @@ function getTranslation2() {
   } else {
     console.log('not all values' + 'source- ' + source + '  target- ' + target + '   textContent- ' + textContent + ' model_id - ' + model_id);
   }
+
 } // get Translation end here
 
 // accepts a lang or locale (e.g. en-US) and returns the lang (e.g. en)
@@ -832,4 +839,3 @@ exports.initTranslator = function () {
   });
 
 };
-
