@@ -103,7 +103,7 @@ app.get('/api/models', function(req, res, next) {
   });
 });
 
-app.get('/api/identify', function(req, res, next) {
+app.post('/api/identify', function(req, res, next) {
   console.log('/v3/identify');
   translator.identify(req.body, function(err, models) {
     if (err) return next(err);
