@@ -114,6 +114,7 @@ app.post('/api/identify', function(req, res, next) {
 });
 
 app.get('/api/identifiable_languages', function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log('/v3/identifiable_languages');
   translator.listIdentifiableLanguages({}, function(err, models) {
     console.log("models:" + models);
@@ -148,6 +149,7 @@ const textToSpeech = new TextToSpeechV1({
  * synthesizeParams
  */
 app.get('/api/synthesize', function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log('Get request: ', JSON.stringify(req.query));
   var synthesizeParams = {
     text: req.query.text,
