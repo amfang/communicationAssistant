@@ -82,7 +82,7 @@ exports.initTTS = function () {
 
       //检测输入文字语言
       var languageIdentifyCall = {
-        type: 'GET',
+        type: 'POST',
         url: '/api/identify',
         headers: {
           'X-Watson-Technology-Preview': nmtValue
