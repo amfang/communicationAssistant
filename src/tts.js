@@ -15,6 +15,7 @@ exports.initTTS = function () {
   
   function getCookie(c_name) {
     if(document.cookie.length > 0) {
+      console.log("cookie:"+document.cookie);
       var c_start = document.cookie.indexOf(c_name + "=");
       if(c_start != -1) {
         c_start = c_start + c_name.length + 1;
@@ -24,6 +25,22 @@ exports.initTTS = function () {
       }
     }
     return "";
+  }
+  function getCookie1(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      console.log("cookie1:"+document.cookie);
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
   }
 
   //通过“回车”提交信息
@@ -93,6 +110,7 @@ exports.initTTS = function () {
 
       var inputText = this.value;
       console.log("csrftoken: "+getCookie("csrftoken"));
+      console.log("csrftoken1: "+getCookie1("csrftoken"));
 
       //检测输入文字语言
       var languageIdentifyCall = {
