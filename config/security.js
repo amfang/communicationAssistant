@@ -47,6 +47,7 @@ module.exports = function(app) {
   app.use('/api/token', csrfProtection);
 
   // 5. rate limiting.
+  /*
   app.use('/api/', rateLimit({
     windowMs: 60 * 1000, // seconds
     delayMs: 0,
@@ -56,4 +57,5 @@ module.exports = function(app) {
       code: 429
     })
   }));
+  */
 };
