@@ -85,7 +85,8 @@ exports.initTTS = function () {
         type: 'POST',
         url: '/api/identify',
         headers: {
-          'X-Watson-Technology-Preview': nmtValue
+          'X-Watson-Technology-Preview': nmtValue,
+          'X-CSRFToken': CSRF_TOKEN
         },
         data: {
           text: inputText
