@@ -117,8 +117,7 @@ exports.initTTS = function () {
         type: 'POST',
         url: '/api/identify',
         headers: {
-          'X-Watson-Technology-Preview': nmtValue,
-          'X-CSRFToken': getCookie("_csrf")
+          'X-Watson-Technology-Preview': nmtValue
         },
         data: {
           text: inputText
