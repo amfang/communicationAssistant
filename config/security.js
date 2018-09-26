@@ -48,9 +48,9 @@ module.exports = function(app) {
 
   // 5. rate limiting.
   app.use('/api/', rateLimit({
-    windowMs: 30 * 1000, // seconds
+    windowMs: 60 * 1000, // seconds
     delayMs: 0,
-    max: 3,
+    max: 4,
     message: JSON.stringify({
       error:'Too many requests, please try again in 30 seconds.',
       code: 429
