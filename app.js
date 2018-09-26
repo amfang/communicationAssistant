@@ -105,6 +105,7 @@ app.get('/api/models', function(req, res, next) {
 
 app.post('/api/identify', function(req, res, next) {
   console.log('/v3/identify');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   translator.identify(req.body, function(err, models) {
     if (err) return next(err);
     else res.json(models);
@@ -122,6 +123,7 @@ app.get('/api/identifiable_languages', function(req, res, next) {
 
 app.post('/api/translate', function(req, res, next) {
   console.log('/v3/translate');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   translator.translate(req.body, function(err, models) {
     if (err) return next(err);
     else res.json(models);
