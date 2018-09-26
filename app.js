@@ -106,7 +106,7 @@ app.get('/api/models', function(req, res, next) {
 
 app.post('/api/identify', function(req, res, next) {
   console.log('/v3/identify');
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://lang.mybluemix.net');
   console.log('updated');
   translator.identify(req.body, function(err, models) {
     if (err) return next(err);
