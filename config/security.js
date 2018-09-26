@@ -44,7 +44,7 @@ module.exports = function(app) {
     next();
   });
   // part 2: require token on /api/* requests
-  app.use('/api/', csrfProtection);
+  app.use('/api/token', csrfProtection);
 
   // 5. rate limiting.
   app.use('/api/', rateLimit({
