@@ -92,6 +92,7 @@ exports.initTTS = function () {
       });
 
       var inputText = this.value;
+      console.log("csrftoken: "+getCookie("csrftoken"));
 
       //检测输入文字语言
       var languageIdentifyCall = {
