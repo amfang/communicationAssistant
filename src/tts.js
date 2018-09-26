@@ -12,6 +12,19 @@ var nmtValue  = '2018-05-01';
 exports.initTTS = function () {
   var timesOfClick = 0; // 输入内容标识
   console.log("initTTS: " + timesOfClick);
+  
+  function getCookie(c_name) {
+    if(document.cookie.length > 0) {
+      var c_start = document.cookie.indexOf(c_name + "=");
+      if(c_start != -1) {
+        c_start = c_start + c_name.length + 1;
+        var c_end = document.cookie.indexOf(";", c_start);
+        if(c_end == -1) c_end = document.cookie.length;
+        return unescape(document.cookie.substring(c_start,c_end));
+      }
+    }
+    return "";
+  }
 
   //通过“回车”提交信息
   $('#homeInput').keydown(function(e) {
@@ -86,7 +99,7 @@ exports.initTTS = function () {
         url: '/api/identify',
         headers: {
           'X-Watson-Technology-Preview': nmtValue,
-          'X-CSRFToken': CSRF_TOKEN
+          'X-CSRFToken': getCookie("csrftoken")
         },
         data: {
           text: inputText
